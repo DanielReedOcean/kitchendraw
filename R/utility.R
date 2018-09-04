@@ -4,8 +4,10 @@
 # Date: Tue Sep 04 10:35:57 2018
 ####################################################################
 
-#' Remove all attributes except class
+#' Remove all attributes except class.
 #'
+#' @param vec A data frame column or vector
+#' @return Return \code{vec} with no attributes except \code{class}
 #' @export
 strip <- function(vec){
   # Attribute names
@@ -17,7 +19,11 @@ strip <- function(vec){
   # Check that there are attributes; if not return original vector
   if(length(att_names) == 0)return(vec)
 
-  lapply(att_names, function(x)attr(vec, x) <- NULL)
+  # Loop through attributes and remove
+  for(i in att_names){
+    attr(vec, i) <- NULL
+  }
 
+  # Return vector
   vec
 }
