@@ -27,3 +27,23 @@ strip <- function(vec){
   # Return vector
   vec
 }
+
+#' Calculate proportions of two water masses in a third (target) water mass.
+#'
+#' @param t1 Temperature of first water mass
+#' @param t2 Temperature of second water mass
+#' @param tT Temperature of target water mass
+#' @param s1 Salinity of first water mass
+#' @param s2 Salinity of second water mass
+#' @param sT Salinity of target water mass
+#' @return Return a vector containing proportion of two water masses
+#' @export
+wm <- function(t1, t2, tT, s1, s2, sT){
+  # Matrix defining LHS of equation
+  A <- matrix(c(t1, t2, s1, s2), ncol = 2, byrow = TRUE)
+  # Vector defining RHS of equation
+  b <- c(tT, sT)
+  # Solve equations
+  solve(A, b)
+}
+
