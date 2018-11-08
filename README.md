@@ -1,9 +1,9 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-workhorse
-=========
+kitchendraw
+===========
 
-`workhorse` provides a bag of miscellaneous helper functions.
+`kitchendraw` provides a bag of miscellaneous helper functions.
 
 Installation
 ------------
@@ -12,5 +12,5 @@ You can install workhorse from github with:
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("DanielReedOcean/workhorse")
+devtools::install_github("DanielReedOcean/kitchendraw")
 ```
