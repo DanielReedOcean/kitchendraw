@@ -4,12 +4,12 @@
 # Date: Wed Feb 14 21:37:21 2018
 ####################################################################
 
-#' Basic theme for ggplot2 figures
+#' Simple theme for ggplot2 figures
 #'
 #' @param ... Arguments passed to \code{theme} function of \code{ggplot2}
 #' @seealso \code{\link{ggplot2}{theme}}
 #' @export
-theme_workhorse <- function(...){
+theme_ocean <- function(...){
   ggplot2::theme(text = ggplot2::element_text(family = "serif"),
                  panel.background = ggplot2::element_blank(),
                  panel.border = ggplot2::element_rect(fill = NA, size = 1),
