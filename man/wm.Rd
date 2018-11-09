@@ -20,7 +20,7 @@ wm(t1, t2, tT, s1, s2, sT)
 \item{sT}{Salinity of target water mass}
 }
 \value{
-Return a vector containing proportion of two water masses
+Return a data frame containing proportion of two water masses calculated from temperature & salinity.
 }
 \description{
 Calculate proportions of two water masses in a third (target) water mass.
