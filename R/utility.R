@@ -33,11 +33,11 @@ strip <- function(vec){
 #' @param t1 Tracer in first water mass
 #' @param t2 Tracer in second water mass
 #' @param tT Tracer of target water mass
-#' @return Return a vector containing proportion of two water masses calculated from temperature & salinity.
+#' @return Return a data frame containing proportion of two water masses calculated from temperature & salinity.
 #' @export
 wm <- function(t1, t2, tT){
   alpha <- (tT - t2)/(t1 - t2)
 
-  return(c(alpha, 1 - alpha))
+  return(data.frame(alpha = alpha, beta =  1 - alpha))
 }
 
