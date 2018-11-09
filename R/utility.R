@@ -28,22 +28,16 @@ strip <- function(vec){
   vec
 }
 
-#' Calculate proportions of two water masses in a third (target) water mass.
+#' Calculate proportions of two water masses in a third (target) water mass using a conservative tracer.
 #'
-#' @param t1 Temperature of first water mass
-#' @param t2 Temperature of second water mass
-#' @param tT Temperature of target water mass
-#' @param s1 Salinity of first water mass
-#' @param s2 Salinity of second water mass
-#' @param sT Salinity of target water mass
-#' @return Return a data frame containing proportion of two water masses calculated from temperature & salinity.
+#' @param t1 Tracer in first water mass
+#' @param t2 Tracer in second water mass
+#' @param tT Tracer of target water mass
+#' @return Return a vector containing proportion of two water masses calculated from temperature & salinity.
 #' @export
-wm <- function(t1, t2, tT, s1, s2, sT){
-  alpha_t <- (tT - t2)/(t1 - t2)
-  alpha_S <- (sT - s2)/(s1 - s2)
+wm <- function(t1, t2, tT){
+  alpha <- (tT - t2)/(t1 - t2)
 
-  data.frame(tracer = c("Temperature", "Salinity"),
-             alpha = c(alpha_t, alpha_S),
-             beta = c(1 - alpha_t, 1 - alpha_S))
+  return(c(alpha, 1 - alpha))
 }
 

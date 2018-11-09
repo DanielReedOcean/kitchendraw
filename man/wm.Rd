@@ -2,26 +2,20 @@
 % Please edit documentation in R/utility.R
 \name{wm}
 \alias{wm}
-\title{Calculate proportions of two water masses in a third (target) water mass.}
+\title{Calculate proportions of two water masses in a third (target) water mass using a conservative tracer.}
 \usage{
-wm(t1, t2, tT, s1, s2, sT)
+wm(t1, t2, tT)
 }
 \arguments{
-\item{t1}{Temperature of first water mass}
+\item{t1}{Tracer in first water mass}
 
-\item{t2}{Temperature of second water mass}
+\item{t2}{Tracer in second water mass}
 
-\item{tT}{Temperature of target water mass}
-
-\item{s1}{Salinity of first water mass}
-
-\item{s2}{Salinity of second water mass}
-
-\item{sT}{Salinity of target water mass}
+\item{tT}{Tracer of target water mass}
 }
 \value{
-Return a data frame containing proportion of two water masses calculated from temperature & salinity.
+Return a vector containing proportion of two water masses calculated from temperature & salinity.
 }
 \description{
-Calculate proportions of two water masses in a third (target) water mass.
+Calculate proportions of two water masses in a third (target) water mass using a conservative tracer.
 }
