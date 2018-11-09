@@ -8,7 +8,7 @@ kitchendraw
 Installation
 ------------
 
-You can install workhorse from github with:
+You can install `kitchendraw` from github with:
 
 ``` r
 # install.packages("devtools")

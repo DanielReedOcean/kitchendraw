@@ -36,14 +36,19 @@ strip <- function(vec){
 #' @param s1 Salinity of first water mass
 #' @param s2 Salinity of second water mass
 #' @param sT Salinity of target water mass
-#' @return Return a vector containing proportion of two water masses
+#' @return Return a vector containing proportion of two water masses and there sum, which should be close to 1
 #' @export
 wm <- function(t1, t2, tT, s1, s2, sT){
   # Matrix defining LHS of equation
   A <- matrix(c(t1, t2, s1, s2), ncol = 2, byrow = TRUE)
+
   # Vector defining RHS of equation
   b <- c(tT, sT)
+
   # Solve equations
-  solve(A, b)
+  res <- solve(A, b)
+
+  # Return ssolution and sum of solution
+  return(c(res, sum(res)))
 }
 
