@@ -14,6 +14,8 @@ theme_ocean <- function(...){
                  panel.background = ggplot2::element_blank(),
                  panel.border = ggplot2::element_rect(fill = NA, size = 1),
                  axis.title = ggplot2::element_text(size = 24),
-                 axis.text = ggplot2::element_text(size = 16)
+                 axis.text = ggplot2::element_text(size = 16),
+                 strip.background = ggplot2::element_blank(),
+                 strip.text = ggplot2::element_text(size = 16)
                  ) + ggplot2::theme(...)
 }
