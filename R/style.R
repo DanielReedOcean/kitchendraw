@@ -16,7 +16,7 @@ theme_ocean <- function(...){
                  axis.title = ggplot2::element_text(size = 24),
                  axis.text = ggplot2::element_text(size = 16),
                  strip.background = ggplot2::element_blank(),
-                 strip.text = ggplot2::element_text(size = 16)
+                 strip.text = ggplot2::element_text(size = 16),
                  panel.grid.major = ggplot2::element_line(colour = scales::alpha(gray50, 0.5),
                                                           linetype = "dashed")
                  ) + ggplot2::theme(...)
