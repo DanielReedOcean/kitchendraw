@@ -41,3 +41,23 @@ wm <- function(t1, t2, tT){
   return(data.frame(alpha = alpha, beta =  1 - alpha))
 }
 
+
+#' Convert a function into a conditional function
+#'
+#' This function takes another function \code{fun} and adds a logical parameter called \code{execute} that
+#' that specifies whether the function is executed or not.
+#'
+#' @param fun Name of function to convert
+#' @return Function \code{fun} with an additional logical parameter \code{execute} that toggles whether it is
+#' executed or not.
+#'
+#' @description This function was created by \emph{ablack3} and posted
+#' \href{https://github.com/tidyverse/magrittr/issues/109#issuecomment-371999796}{here} on GitHub.
+#'
+#' @export
+conditionally <- function(fun){
+  function(first_arg, ..., execute){
+    if(execute) return(fun(first_arg, ...))
+    else return(first_arg)
+  }
+}
