@@ -11,7 +11,8 @@
 #' @export
 theme_ocean <- function(...){
   ggplot2::theme(text = ggplot2::element_text(family = "serif"),
-                 panel.background = ggplot2::element_blank(),
+                 panel.background = ggplot2::element_rect(fill = "transparent", colour = NA),
+                 plot.background = ggplot2::element_rect(fill = "transparent", colour = NA),
                  panel.border = ggplot2::element_rect(fill = NA, size = 1),
                  axis.title = ggplot2::element_text(size = 24),
                  axis.text = ggplot2::element_text(size = 16),
