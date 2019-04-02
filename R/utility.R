@@ -71,18 +71,18 @@ check.factor <- function(x){
 #' Check numeric column
 #' @param x numeric
 #' @return No return values - a box/dotplot is produced to examine values
-check.numeric <- function(x, x_name = deparse(substitute(x))){
+check.numeric <- function(x, x_name){
   if(!is.numeric(x))stop("Feed me numerics not ", class(x), "s")
 
   message("See plot...")
 
-  print(ggplot2::ggplot(data.frame(y = x), ggplot2::aes(x = 1, y = y)) +
+  suppressMessages(print(ggplot2::ggplot(data.frame(y = x), ggplot2::aes(x = 1, y = y)) +
     ggplot2::geom_boxplot() +
     ggplot2::geom_dotplot(binaxis = "y", stackdir = "center") +
     ggplot2::ylab("Values") +
     ggplot2::xlab("") +
     kitchendraw::theme_ocean(axis.text.x = ggplot2::element_blank()) +
-    ggplot2::ggtitle((x_name)))
+    ggplot2::ggtitle((x_name))))
 }
 
 #' Check character column
@@ -114,5 +114,5 @@ check_df <- function(df){
   df_cols <- colnames(df)
 
   # Check all columns
-  invisible(lapply(df_cols, function(x){print(x, quote = FALSE); check(df[[x]])}))
+  invisible(lapply(df_cols, function(x){print(x, quote = FALSE); check(df[[x]], x)}))
 }
