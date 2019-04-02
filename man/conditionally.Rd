@@ -14,10 +14,7 @@ Function \code{fun} with an additional logical parameter \code{execute} that tog
 executed or not.
 }
 \description{
-This function was created by \emph{ablack3} and posted
-\href{https://github.com/tidyverse/magrittr/issues/109#issuecomment-371999796}{here} on GitHub.
-}
-\details{
 This function takes another function \code{fun} and adds a logical parameter called \code{execute} that
-that specifies whether the function is executed or not.
+that specifies whether the function is executed or not. The function was created by \emph{ablack3} and posted
+\href{https://github.com/tidyverse/magrittr/issues/109#issuecomment-371999796}{here} on GitHub.
 }
