@@ -62,7 +62,7 @@ conditionally <- function(fun){
 
 #' Check factor column
 #' @param x factor
-check.factor <- function(x, xname){
+check.factor <- function(x, x_name){
   if(!is.factor(x))stop("Nope – not a factor")
   message(x_name, ":")
   message("\tFactor with levels ", paste(levels(x), collapse = ","))
@@ -76,6 +76,10 @@ check.numeric <- function(x, x_name){
   if(!is.numeric(x))stop("Feed me numerics not ", class(x), "s")
 
   message(x_name, ":")
+  message("\tNumeric with ", sum(!is.na(x)), " values, ", sum(is.na(x)), " NAs (", length(x), " total)")
+  message("\tRange: ", paste(range(x, na.rm =TRUE), collapse = "-"))
+  message("\tMean: ", mean(x, na.rm =TRUE))
+  message("\tMedian: ", median(x, na.rm =TRUE))
   message("\tSee plot...")
 
   suppressMessages(print(ggplot2::ggplot(data.frame(y = x), ggplot2::aes(x = 1, y = y)) +
@@ -90,7 +94,7 @@ check.numeric <- function(x, x_name){
 #' Check character column
 #' @param x numeric
 #' @param n number of random values to show – 20 by default
-check.character <- function(x, xname, n = 20){
+check.character <- function(x, x_name, n = 20){
   if(!is.character(x))stop("Expected characters, got ", class(x), "s. Disappointed.")
   message(x_name, ":")
   message("\tCharacter with ", length(unique(x)), " unique values")
@@ -113,9 +117,6 @@ check_df <- function(df){
   # Check that df is a data frame
   if(!is.data.frame(df))stop("What are you trying to pull here?! check_df expects a data frame")
 
-  # Get column names
-  df_cols <- colnames(df)
-
   # Check all columns
-  invisible(lapply(df_cols, function(x)check(df[[x]], x)))
+  invisible(lapply(colnames(df), function(i)check(x = df[[i]], x_name = i)))
 }
