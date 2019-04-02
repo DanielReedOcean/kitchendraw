@@ -77,9 +77,9 @@ check.numeric <- function(x, x_name){
 
   message(x_name, ":")
   message("\tNumeric with ", sum(!is.na(x)), " values, ", sum(is.na(x)), " NAs (", length(x), " total)")
-  message("\tRange: ", paste(range(x, na.rm =TRUE), collapse = "-"))
-  message("\tMean: ", mean(x, na.rm =TRUE))
-  message("\tMedian: ", median(x, na.rm =TRUE))
+  message("\tRange: ", paste(signif(range(x, na.rm =TRUE), collapse = "-")))
+  message("\tMean: ", signif(mean(x, na.rm =TRUE)))
+  message("\tMedian: ", signif(median(x, na.rm =TRUE)))
   message("\tSee plot...")
 
   suppressMessages(print(ggplot2::ggplot(data.frame(y = x), ggplot2::aes(x = 1, y = y)) +
