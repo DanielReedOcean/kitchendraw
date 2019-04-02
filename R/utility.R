@@ -62,10 +62,11 @@ conditionally <- function(fun){
 
 #' Check factor column
 #' @param x factor
-check.factor <- function(x){
+check.factor <- function(x, xname){
   if(!is.factor(x))stop("Nope – not a factor")
-  message("Factor with levels ", paste(levels(x), collapse = ","))
-  message(sum(!is.na(x)), " values, ", sum(is.na(x)), " NAs (", length(x), " total)")
+  message(x_name, ":")
+  message("\tFactor with levels ", paste(levels(x), collapse = ","))
+  message("\t", sum(!is.na(x)), " values, ", sum(is.na(x)), " NAs (", length(x), " total)")
 }
 
 #' Check numeric column
@@ -74,7 +75,8 @@ check.factor <- function(x){
 check.numeric <- function(x, x_name){
   if(!is.numeric(x))stop("Feed me numerics not ", class(x), "s")
 
-  message("See plot...")
+  message(x_name, ":")
+  message("\tSee plot...")
 
   suppressMessages(print(ggplot2::ggplot(data.frame(y = x), ggplot2::aes(x = 1, y = y)) +
     ggplot2::geom_boxplot() +
@@ -88,11 +90,12 @@ check.numeric <- function(x, x_name){
 #' Check character column
 #' @param x numeric
 #' @param n number of random values to show – 20 by default
-check.character <- function(x, n = 20){
+check.character <- function(x, xname, n = 20){
   if(!is.character(x))stop("Expected characters, got ", class(x), "s. Disappointed.")
-  message("Character with ", length(unique(x)), " unique values")
-  message(sum(!is.na(x)), " values, ", sum(is.na(x)), " NAs (", length(x), " total)")
-  message("Random sample of values:\n", paste(" ", sample(x, min(length(x), n)), "\n", sep = ""))
+  message(x_name, ":")
+  message("\tCharacter with ", length(unique(x)), " unique values")
+  message("\t", sum(!is.na(x)), " values, ", sum(is.na(x)), " NAs (", length(x), " total)")
+  message("\tRandom sample of values:\n", paste(" ", sample(x, min(length(x), n)), "\n", sep = ""))
 }
 
 #' Dispatch function for checking
@@ -114,5 +117,5 @@ check_df <- function(df){
   df_cols <- colnames(df)
 
   # Check all columns
-  invisible(lapply(df_cols, function(x){print(x, quote = FALSE); check(df[[x]], x)}))
+  invisible(lapply(df_cols, function(x)check(df[[x]], x)))
 }
