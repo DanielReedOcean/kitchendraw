@@ -83,8 +83,7 @@ check.numeric <- function(x, x_name){
   message("\tSee plot...")
 
   suppressMessages(print(ggplot2::ggplot(data.frame(y = x), ggplot2::aes(x = 1, y = y)) +
-    ggplot2::geom_boxplot() +
-    ggplot2::geom_dotplot(binaxis = "y", stackdir = "center") +
+    ggplot2::geom_violin(colour = NA, fill = scales::alpha("#FF3300", 0.35)) +
     ggplot2::ylab("Values") +
     ggplot2::xlab("") +
     kitchendraw::theme_ocean(axis.text.x = ggplot2::element_blank()) +
