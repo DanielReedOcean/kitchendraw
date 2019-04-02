@@ -71,7 +71,7 @@ check.factor <- function(x){
 #' Check numeric column
 #' @param x numeric
 #' @return No return values - a box/dotplot is produced to examine values
-check.numeric <- function(x){
+check.numeric <- function(x, x_name = deparse(substitute(x))){
   if(!is.numeric(x))stop("Feed me numerics not ", class(x), "s")
 
   message("See plot...")
@@ -81,7 +81,8 @@ check.numeric <- function(x){
     ggplot2::geom_dotplot(binaxis = "y", stackdir = "center") +
     ggplot2::ylab("Values") +
     ggplot2::xlab("") +
-    kitchendraw::theme_ocean(axis.text.x = ggplot2::element_blank())
+    kitchendraw::theme_ocean(axis.text.x = ggplot2::element_blank()) +
+    ggplot2::ggtitle((x_name))
 }
 
 #' Check character column
