@@ -76,13 +76,13 @@ check.numeric <- function(x, x_name = deparse(substitute(x))){
 
   message("See plot...")
 
-  ggplot2::ggplot(data.frame(y = x), ggplot2::aes(x = 1, y = y)) +
+  print(ggplot2::ggplot(data.frame(y = x), ggplot2::aes(x = 1, y = y)) +
     ggplot2::geom_boxplot() +
     ggplot2::geom_dotplot(binaxis = "y", stackdir = "center") +
     ggplot2::ylab("Values") +
     ggplot2::xlab("") +
     kitchendraw::theme_ocean(axis.text.x = ggplot2::element_blank()) +
-    ggplot2::ggtitle((x_name))
+    ggplot2::ggtitle((x_name)))
 }
 
 #' Check character column
