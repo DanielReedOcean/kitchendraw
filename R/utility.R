@@ -99,7 +99,7 @@ check.character <- function(x, x_name, n = 20){
   message(x_name, ":")
   message("\tCharacter with ", length(unique(x)), " unique values")
   message("\t", sum(!is.na(x)), " values, ", sum(is.na(x)), " NAs (", length(x), " total)")
-  message("\tRandom sample of values:\n", paste(" ", sample(x, min(length(x), n)), "\n", sep = ""))
+  message("\tRandom sample of values:\n", paste("\t", sample(x, min(length(x), n)), "\n", sep = ""))
 }
 
 #' Dispatch function for checking
