@@ -33,4 +33,6 @@ strip <- function(vec){
 #' @usage x %!in% y
 #' @param x Vector
 #' @param y Vector
+#' @title Not in operator
+#' @export
 `%!in%` <- Negate("%in%")
